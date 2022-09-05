@@ -163,6 +163,16 @@ class Game {
       drawSprites();
     }
   }
+    
+    showRank(){
+      swal({
+        title:`Incrível!${"\n"}Rank${"\n"}${player.rank}`,
+        text: "Você alcançou a linha de chegada com sucesso!",
+        imageUrl: "https://raw.githubusercontent.com/vishalgaddam873/p5-multiplayer-car-race-game/master/assets/cup.png",
+        confirmButtonText: "OK"
+
+      });
+    }
     //exibir barra de vida
     showLife(){
       push();
