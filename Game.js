@@ -163,4 +163,37 @@ class Game {
       drawSprites();
     }
   }
+    //exibir barra de vida
+    showLife(){
+      push();
+      image(lifeImage,width/2-130,height-player.positionY-100,20,20);
+      fill("white");
+      rect(width/2-100,height-player.positionY-100,100,20);
+      fill("#f50057");
+      rect(width/2-100,height-player.positionY-100,player.life,20);
+      noStroke();
+      pop();
+    }//fim do showLife
+    
+    //exibir barra de combustível
+    showFuelBar(){
+      push();
+      image(fuelImage,width/2-130,height-player.positionY-130,20,20);
+      fill("white");
+      rect(width/2-100,height-player.positionY-130,200,20);
+      fill("#ffc400");
+      rect(width/2-100,height-player.positionY-130,player.fuel,20);
+      noStroke();
+      pop();
+    }//fim de showFuelBar
+    
+    
+     gameOver(){
+      swal({
+            title:`Fim de Jogo!`,
+            text:"Ops, você perdeu a corrida!!!",
+            imageUrl:"https://cdn.shopify.com/s/files/1/1061/1924/products/Thumbs_Down_Sign_Emoji_Icon_ios10_grande.png",
+            confirmButtonText:"Obrigada por Jogar"
+      });
+    }
   }
