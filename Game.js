@@ -60,9 +60,38 @@ class Game {
       //cria um grupo para as moedas
       coin = new Group();
 
+      //cria um grupo de cones - obstaculo
+      obstacles = new Group();
+
+      //cria um grupo de pneus - obstaculo
+      obstacles2 = new Group();
+
+      var obstaclesPositions =[
+        {x:width/2-150,y:height-1300,image:obstacleImg},
+        {x:width/2+150,y:height-1800,image:obstacleImg},
+        {x:width/2-180,y:height-3300,image:obstacleImg},
+        {x:width/2-150,y:height-4300,image:obstacleImg},
+        {x:width/2,y:height-5300,image:obstacleImg}
+      ];
+
+      var obstaclesPositions2 =[
+        {x:width/2+250,y:height-800,image:obstacle2Img},
+        {x:width/2-180,y:height-2300,image:obstacle2Img},
+        {x:width/2,y:height-2800,image:obstacle2Img},
+        {x:width/2+180,y:height-3300,image:obstacle2Img},
+        {x:width/2+250,y:height-3800,image:obstacle2Img},
+        {x:width/2+250,y:height-4800,image:obstacle2Img},
+        {x:width/2-180,y:height-5500,image:obstacle2Img}
+      ];
+
       //adiciona os sprites aleatoriamente
       this.addSprites(fuel,4,fuelImage,0.02);
       this.addSprites(coin,6,coinImage,0.09);
+
+      //adiciona os sprites de obstaculos em lugares predeterminados
+      this.addSprites(obstacles,obstaclesPositions.length,obstacleImg,0.04,obstaclesPositions);
+      this.addSprites(obstacles2,obstaclesPositions2.length,obstacle2Img,0.04,obstaclesPositions2);
+    
     }
 
     handleElements(){
