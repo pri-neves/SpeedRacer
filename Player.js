@@ -4,6 +4,10 @@ class Player {
      this.index = null;
      this.positionX = 0;
      this.positionY = 0;
+     this.score = 0;
+     this.rank = 0;
+     this.life=100;
+     this.fuel=200;
     }
     
     //pega a posição do jogador no Banco de Dados
@@ -29,7 +33,10 @@ class Player {
       database.ref(playerIndex).set({
         name:this.name,
         positionX:this.positionX,
-        positionY:this.positionY
+        positionY:this.positionY,
+        score:this.score,
+        rank:this.rank,
+        life:this.life
       });
     }
     
@@ -51,7 +58,10 @@ class Player {
       database.ref(playerIndex).update({
         name:this.name,
         positionX:this.positionX,
-        positionY:this.positionY
+        positionY:this.positionY,
+        rank:this.rank,
+        score:this.score,
+        life:this.life
       });
     }
 
@@ -61,4 +71,18 @@ class Player {
         allPlayers = data.val();
       });
     }
+
+    getCarsAtEnd(){
+      database.ref('carsAtEnd').on("value",(data)=>{
+        this.rank = data.val()
+      });
+    }
+
+    static updateCarsAtEnd(rank){
+      database.ref("/").update({
+        carsAtEnd:rank
+       
+      });
+    }
+
   }
